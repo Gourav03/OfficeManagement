@@ -1,0 +1,46 @@
+<%= form_for(event) do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container">
+    
+    <table class="table table-hover">
+      <tbody>           
+        <tr>
+          <td><strong><%= f.label :Event_name %></strong></td>
+          <td><%= f.text_field :name, required: true %></td>
+        </tr>
+        <tr>
+          <td><strong><%= f.label :Event_Date %></strong></td>
+          <td><%= f.text_field :date, :class => 'datepicker' %></td>
+        </tr> 
+        <tr>
+          <td><strong><%= f.label :Description %></strong></td>
+          <td><%= f.text_area :description  %></td>          
+        </tr>                               
+      </tbody>
+    </table>
+    
+  </div>  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<script type="text/javascript">
+
+$('.datepicker').datepicker(
+{
+  format: 'dd/mm/yyyy',
+  startDate: '0y',
+  endDate: '+10y'
+});
+</script>

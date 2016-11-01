@@ -1,0 +1,30 @@
+<div class="row">
+  <h1>Galleries</h1>
+  <%= link_to 'New', new_gallery_path, :class => 'btn btn-mini' %>
+  <p></p>
+  <ul class="thumbnails files">
+    <% @galleries.each do |gallery| %>
+        <li class="col-sm-6 col-md-4" id="gallery_<%= gallery.id %>">
+          <div class="thumbnail">
+            <% if gallery.pictures.first %>
+            <%= link_to image_tag(gallery.pictures.first.image.url), gallery_path(gallery) %>
+            <% else %>
+              N/A
+            <% end %>
+            <div class="caption">
+              <p style="text-align: center;">
+                <%= gallery.name.truncate(14) %><br >                
+                <%= link_to "Show", gallery_path(gallery), :class => 'btn btn-mini' %>
+                <%= link_to "Edit", edit_gallery_path(gallery), :class => 'btn btn-mini' %>
+                <%= link_to "Delete", gallery,
+                  :data => { :confirm => "Are you sure?" },
+                  :method => :delete, :class => 'btn btn-mini'
+                 %>
+              </p>
+            </div>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+
+</div>

@@ -1,0 +1,53 @@
+<%= form_for([current_user, @profile], :url => user_profile_path(current_user, @profile)) do |f| %>
+  
+  <div class="container">
+    <table class="table table-striped">
+      <tbody>           
+        <tr>
+          <td><strong><%= f.label :User_Id %></strong></td>
+          <td><%= current_user.id %></td>
+        </tr>
+        <tr>
+          <td><strong><%= f.label :Name %></strong></td>
+          <td><%= f.text_field :name, autocomplete: "off", required: true %></td>
+          
+        </tr>
+        <tr>
+          <td><strong><%= f.label :email %></strong></td>
+          <td> <%=  current_user.email %>  </td>
+        </tr>
+        <tr>
+          <td><strong><%= f.label :Designation %></strong></td>
+          <td> <%= f.text_field :designation %></td>
+        </tr>
+        <tr>
+          <td><strong><%= f.label :Address %></strong></td>
+          <td><%= f.text_field :address, autocomplete: "off" %></td>
+        </tr>
+        <tr>
+          <td><strong><%= f.label :Contact_Number %></strong></td>
+          <td><%= f.text_field :contact_number, autocomplete: "off" %></td>
+        </tr>
+        <tr>
+          <td><strong><%= f.label :Date_of_birth %></strong></td>
+          <td><%= f.text_field :date_of_birth, :class => 'datepicker' %></td>
+        </tr>
+        <tr>
+          <td><strong><%= f.label :image %></strong></td>
+          <td><%= f.file_field :image %></td>
+        </tr>        
+        <br > 
+        <tr><td><div class="actions"><%= f.submit "Update Profile" %></div></td></tr>                
+      </tbody>
+    </table>
+  </div>  
+<% end %>
+<script type="text/javascript">
+
+$('.datepicker').datepicker(
+{
+  format: 'dd/mm/yyyy',
+  startDate: '-45y',
+  endDate: '-18y'
+});
+</script>

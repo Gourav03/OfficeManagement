@@ -1,0 +1,43 @@
+<% content_for :top_content do %>
+
+	<div class="container">
+		
+		<% if user_signed_in? %>
+			<% if current_user.role %>			
+				<table class="table table-striped">
+					<th><strong>User Id:</strong></th>
+					<th><strong>Email:</strong></th>
+					<th><strong>Role:</strong></th>
+					<th></th>
+					<th></th>
+					<tbody>
+						<% @users.each do |t| %>
+							<tr>
+								<td> <%= t.id %></td>
+								<td> <%= t.email %></td>		       
+								<td> <% unless t.role %>Employee<% end %></td>		      
+								<td><%= link_to "Edit User", edit_user_path(t), :class => 'btn btn-mini'%>
+								<%= link_to 'Delete User', user_path(t), method: :delete,	data: { confirm: 'Are you sure?' } , :class => 'btn btn-mini' %>								
+								<%= link_to 'Working Time', record_path(t), :class => 'btn btn-mini'%></td>	
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+				<%= will_paginate @users %>					  
+			<% else %>
+				<h3>Hello!..<%= current_user.profile.name %></h3>
+				<h2>Attendance page</h2>
+				<p id="demo"> </p>				
+				<%= button_to 'Login / Logout time', {:controller => "records", :action => "create", :date => Date.today, :user_id => current_user  }, :method => :post, :class => 'btn btn-mini', :id => 'button1'%>			
+			<% end %>
+		<% else %>
+				<h1>Welcome!</h1>
+				<p>Login to get started.</p>				
+		<% end %>				
+	</div>	
+<% end %>
+
+
+
+
+

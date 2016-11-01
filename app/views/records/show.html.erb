@@ -1,0 +1,15 @@
+<div class="container">
+	<table class="table table-striped">
+		<th><strong>Date:</strong></th>
+		<th><strong>Total Working Hours(In hours):</strong></th>
+		<tbody>
+			<% @records.each do |t|  %>
+				<tr>
+					<td><%= t.date.strftime("%d/%m/%Y") %></td>
+					<td><%= (t.total_working_hours/3600) %></td>
+				</tr>
+			<% end %>			
+		</tbody>
+	</table>
+	<%= will_paginate @records %>
+</div>

@@ -1,0 +1,43 @@
+<% content_for :top_content do %>
+	<div class="container">
+		<div class="row">
+			<div class = "img-thumbnail">
+	  		<div class="rounded float-xs-right">
+			    <%= link_to image_tag(@profile.image.url, class: 'media-object'), @profile.image.url, target: '_blank', class: 'img-circle' %>
+			  </div>
+		  </div>
+		</div>
+		<br >		 
+		<table class="table table-striped">
+			<tbody>						
+			<tr>
+				<td><strong>Name:</strong></td>
+				<td> <%= @profile.name  %></td>
+			</tr>	
+			<tr><td><strong>Email:</strong></td><td> <%= current_user.email %></td></tr>		
+			<tr>
+				<td><strong>Designation:</strong></td>
+				<td> <%= @profile.designation %></td>
+			</tr>
+			<tr>
+				<td><strong>Address:</strong></td>
+				<td> <%= @profile.address %></td>
+			</tr>
+			<tr>
+			<td><strong>Contact Number:</strong></td>
+			<td> <%= @profile.contact_number %></td>
+			</tr>
+			<tr>
+			<td><strong>Date Of Birth:</strong></td>
+			<td><%= @profile.date_of_birth.strftime("%d/%m/%Y") %></td>  </tr>	
+										
+			</tbody>
+		</table>	
+		<h3><%= link_to "Edit Profile", edit_user_profile_path(current_user.id,@profile ), :class => 'btn btn-mini'%></h3>	
+	</div>
+<% end %>
+
+
+
+
+

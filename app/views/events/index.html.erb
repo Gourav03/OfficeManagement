@@ -1,0 +1,30 @@
+<h1>Events</h1>
+<div class="container">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><strong>Name:</strong></th>
+      <th><strong>Description:</strong></th>
+      <th><strong>Date:</strong></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td> <%= event.name  %></td>
+        <td> <%= event.description %></td>
+        <td><%= event.date.strftime("%d/%m/%Y") %></td>
+        <td><%= link_to 'Show', event, :class => 'btn btn-mini' %>
+        <%= link_to 'Edit', edit_event_path(event), :class => 'btn btn-mini' %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path, :class => 'btn btn-mini' %>
+</div>
+

@@ -1,0 +1,21 @@
+
+	<div class="container">
+		<table class="table table-striped">
+			<tbody>						
+				<tr>
+					<td><strong>Name:</strong></td>
+					<td> <%= @event.name  %></td>
+				</tr>
+				<tr>			
+					<td><strong>Description:</strong></td>
+					<td> <%= @event.description %></td>
+				</tr>			
+				<tr>
+					<td><strong>Event Date:</strong></td>
+					<td><%= @event.date.strftime("%d/%m/%Y") %></td>
+				</tr>										
+			</tbody>
+		</table>	
+		<h3><%= link_to "Edit Profile", edit_event_path(@event), :class => 'btn btn-mini'%></h3>	
+		<%= link_to 'Back', events_path, :class => 'btn btn-mini' %>
+	</div>
