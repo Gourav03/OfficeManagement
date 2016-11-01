@@ -22,7 +22,7 @@
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Galleries', galleries_path %></li>
             <li><%= link_to 'Events', events_path %></li>
-            <% if current_user.role == 0%>
+            <% if current_user.role == 1 %>
               <li><%= link_to 'Create User', new_user_path %></li>
              
             <% elsif  %>            
