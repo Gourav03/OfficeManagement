@@ -3,7 +3,7 @@
 	<div class="container">
 		
 		<% if user_signed_in? %>
-			<% if current_user.role %>			
+			<% if current_user.role == 1 %>			
 				<table class="table table-striped">
 					<th><strong>User Id:</strong></th>
 					<th><strong>Email:</strong></th>
@@ -15,7 +15,7 @@
 							<tr>
 								<td> <%= t.id %></td>
 								<td> <%= t.email %></td>		       
-								<td> <% if t.role == 1 %>Employee<% end %></td>		      
+								<td> <% if t.role == 0 %>Employee<% end %></td>		      
 								<td><%= link_to "Edit User", edit_user_path(t), :class => 'btn btn-mini'%>
 								<%= link_to 'Delete User', user_path(t), method: :delete,	data: { confirm: 'Are you sure?' } , :class => 'btn btn-mini' %>								
 								<%= link_to 'Working Time', record_path(t), :class => 'btn btn-mini'%></td>	
