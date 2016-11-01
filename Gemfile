@@ -57,7 +57,7 @@ gem 'twitter-bootstrap-rails', '2.2.8'
 gem "less-rails"
 gem 'bootstrap-toggle-rails'
 gem 'will_paginate', '~> 3.1.0'
-gem 'heroku'
+
 
 
 
