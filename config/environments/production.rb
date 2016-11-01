@@ -81,7 +81,17 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
   config.action_mailer.default_url_options = { host: 'https://strivepool-office-management.herokuapp.com' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
 
+config.action_mailer.smtp_settings = {
+ :address              => "smtp.gmail.com",
+ :port                 => 587,
+ :user_name            => 'gourav031192@gmail.com',
+ :password             => '7089047127',
+ :authentication       => "login",
+ :enable_starttls_auto => true
+}
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
