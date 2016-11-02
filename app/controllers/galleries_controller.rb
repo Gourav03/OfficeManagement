@@ -69,11 +69,8 @@ class GalleriesController < ApplicationController
 
   def destroy
     @gallery = Gallery.find(params[:id])
-    @gallery.destroy
-    respond_to do |format|
-      format.html { redirect_to galleries_path }
-      format.json { head :no_content }
-    end
+    @gallery.destroy    
+    redirect_to galleries_path     
   end
 
   private
