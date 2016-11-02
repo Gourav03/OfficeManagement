@@ -1,7 +1,5 @@
 <% content_for :top_content do %>
-
-	<div class="container">
-		
+	<div class="container">		
 		<% if user_signed_in? %>
 			<% if current_user.role == 1 %>			
 				<table class="table table-striped">
@@ -16,9 +14,11 @@
 								<td> <%= t.id %></td>
 								<td> <%= t.email %></td>		       
 								<td> <% if t.role == 0 %>Employee<% end %></td>		      
-								<td><%= link_to "Edit User", edit_user_path(t), :class => 'btn btn-mini'%>
-								<%= link_to 'Delete User', user_path(t), method: :delete,	data: { confirm: 'Are you sure?' } , :class => 'btn btn-mini' %>								
-								<%= link_to 'Working Time', record_path(t), :class => 'btn btn-mini'%></td>	
+								<td>
+									<%= link_to "Edit User", edit_user_path(t), :class => 'btn btn-mini'%>
+									<%= link_to 'Delete User', user_path(t), method: :delete,	data: { confirm: 'Are you sure?' } , :class => 'btn btn-mini' %>								
+									<%= link_to 'Working Time', record_path(t), :class => 'btn btn-mini'%>									
+								</td>	
 							</tr>
 						<% end %>
 					</tbody>
@@ -31,8 +31,8 @@
 				<%= button_to 'Login / Logout time', {:controller => "records", :action => "create", :date => Date.today, :user_id => current_user  }, :method => :post, :class => 'btn btn-mini', :id => 'button1'%>			
 			<% end %>
 		<% else %>
-				<h1>Welcome!</h1>
-				<p>Login to get started.</p>				
+			<h1>Welcome!</h1>
+			<p>Login to get started.</p>				
 		<% end %>				
 	</div>	
 <% end %>
