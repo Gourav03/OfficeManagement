@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
- 
+  # GET /pictures
+  # GET /pictures.json
   def index
 
     @gallery = Gallery.find(params[:gallery_id])
@@ -12,6 +13,8 @@ class PicturesController < ApplicationController
     end
   end
 
+  # GET /pictures/1
+  # GET /pictures/1.json
   def show
     @picture = Picture.find(params[:id])
 
@@ -21,6 +24,8 @@ class PicturesController < ApplicationController
     end
   end
 
+  # GET /pictures/new
+  # GET /pictures/new.json
   def new
     @gallery = Gallery.find(params[:gallery_id])
     @picture = @gallery.pictures.build
@@ -31,10 +36,16 @@ class PicturesController < ApplicationController
     end
   end
 
+  # GET /pictures/1/edit
   def edit
-    @picture = Picture.find(params[:id])   
+    #@gallery = Gallery.find(params[:gallery_id])
+
+    @picture = Picture.find(params[:id])
+    # @picture = Picture.find(params[:id])
   end
 
+  # POST /pictures
+  # POST /pictures.json
   def create
     @picture = Picture.new(params[:picture])
 
@@ -54,6 +65,8 @@ class PicturesController < ApplicationController
     end
   end
 
+  # PUT /pictures/1
+  # PUT /pictures/1.json
   def update
 
     @gallery = Gallery.find(params[:gallery_id])
@@ -71,10 +84,18 @@ class PicturesController < ApplicationController
     end
   end
 
-  def destroy    
+  # DELETE /pictures/1
+  # DELETE /pictures/1.json
+  def destroy
+    #@gallery = Gallery.find(params[:gallery_id])
+    #@picture = @gallery.pictures.find(params[:id])
     @picture = Picture.find(params[:id])
     @picture.destroy
-    format.html { redirect_to galleries_path }    
+
+    respond_to do |format|
+      format.html { redirect_to galleries_path }
+      format.js
+    end
   end
 
   def make_default
