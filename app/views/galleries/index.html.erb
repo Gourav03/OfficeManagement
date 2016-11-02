@@ -16,7 +16,8 @@
                 <%= gallery.name.truncate(14) %><br >                
                 <%= link_to "Show", gallery_path(gallery), :class => 'btn btn-mini' %>
                 <%= link_to "Edit", edit_gallery_path(gallery), :class => 'btn btn-mini' %>
-                <%= link_to "Delete", gallery,
+                <%= link_to "Delete", gallery_path(gallery),
+                  :data => { :confirm => "Are you sure?" },
                   :method => :delete, :class => 'btn btn-mini'
                  %>
               </p>

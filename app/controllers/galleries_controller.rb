@@ -34,7 +34,7 @@ class GalleriesController < ApplicationController
   end
 
   # GET /galleries/1/edit
-  def edit
+  def edit    
     @gallery = Gallery.find(params[:id])
   end
 
@@ -86,12 +86,12 @@ class GalleriesController < ApplicationController
     end
   end
 
-  # DELETE /galleries/1
-  # DELETE /galleries/1.json
+
   def destroy
-    gallery = Gallery.find(params[:id])
-    gallery.destroy
-    redirect_to galleries_path  
+    @gallery = Gallery.find(params[:id])
+    @gallery.destroy
+
+    redirect_to galleries_path
   end
 
   private
