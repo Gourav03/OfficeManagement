@@ -91,7 +91,7 @@ class GalleriesController < ApplicationController
   def destroy
     gallery = Gallery.find(params[:id])
     gallery.destroy
-    redirect_to galleries_url  
+    redirect_to galleries_path  
   end
 
   private
