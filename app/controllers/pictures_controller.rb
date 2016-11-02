@@ -87,9 +87,9 @@ class PicturesController < ApplicationController
   # DELETE /pictures/1
   # DELETE /pictures/1.json
   def destroy
-    #@gallery = Gallery.find(params[:gallery_id])
-    #@picture = @gallery.pictures.find(params[:id])
-    @picture = Picture.find(params[:id])
+    @gallery = Gallery.find(params[:gallery_id])
+    @picture = @gallery.pictures.find(params[:id])
+    #@picture = Picture.find(params[:id])
     @picture.destroy
 
     respond_to do |format|
