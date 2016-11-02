@@ -1,4 +1,5 @@
 class Picture < ApplicationRecord
+	
 	belongs_to :gallery
 
   has_attached_file :image,
