@@ -74,7 +74,7 @@ class PicturesController < ApplicationController
   def destroy    
     @picture = Picture.find(params[:id])
     @picture.destroy
-    redirect_to galleries_path    
+    format.html { redirect_to galleries_path }    
   end
 
   def make_default
