@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 	end
 
 	def create		
-		user = User.new(user_params)			
-		user.save ? (redirect_to users_path) : (render 'new')		
+		@user = User.new(user_params)				
+		@user.save ? (redirect_to users_path) : (render 'new')		
 	end
 
 	def edit
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:email, :password)
+		params.require(:user).permit(:email, :password, :password_confirmation)
 	end
 
 end
