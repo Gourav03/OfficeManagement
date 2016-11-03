@@ -33,7 +33,7 @@ class RecordsController < ApplicationController
 	end
 
 	def show
-	  @records = Record.where(:user_id => params[:id]).paginate(:page => params[:page], :per_page => 1)
+	  @records = Record.where(:user_id => params[:id]).paginate(:page => params[:page], :per_page => 5)
 	end 
 1
 	private
