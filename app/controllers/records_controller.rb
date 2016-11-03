@@ -5,7 +5,7 @@ class RecordsController < ApplicationController
 	end
 
 	def create
-		if Record.pluck(:date).include?(Date.today)				
+		if Record.pluck(:date).include?(Date.today) 		
 	 		record = Record.find_by(:date => Date.today) 	
 	 		if (record[:created_at] == record[:updated_at])	&& (record[:total_working_hours] == nil)			
 	 			if record.update(:updated_at => Time.zone.now)	
@@ -32,10 +32,10 @@ class RecordsController < ApplicationController
 	 	redirect_to root_path	 	
 	end
 
-	def show		
-		@records = Record.where(params[:user_id]).paginate(:page => params[:page], :per_page => 1)
+	def show
+	  @records = Record.where(:user_id => params[:id]).paginate(:page => params[:page], :per_page => 1)
 	end 
-
+1
 	private
 
 	def record_params		
