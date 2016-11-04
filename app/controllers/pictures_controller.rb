@@ -92,7 +92,7 @@ class PicturesController < ApplicationController
     #@picture = Picture.find(params[:id])
     @picture.destroy
 
-    redirect_to galleries_path
+    redirect_to @gallery
   end
 
   def make_default
