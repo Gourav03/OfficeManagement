@@ -4,7 +4,7 @@
   <p></p>
   <ul class="thumbnails files">
     <% @galleries.each do |gallery| %>
-        <li class="col-sm-6 col-md-4" id="gallery_<%= gallery.id %>">
+        <li class="col-sm-6 col-md-3" style="list-style:none;" id="gallery_<%= gallery.id %>">
           <div class="thumbnail">
             <% if gallery.pictures.first %>
             <%= link_to image_tag(gallery.pictures.first.image.url), gallery_path(gallery) %>
